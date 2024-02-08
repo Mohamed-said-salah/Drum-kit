@@ -6,6 +6,8 @@ for (var i = 0; i < drumButtons.length; i++) {
     drumButtons[i].addEventListener("click", function () {
         var buttonInnerText = this.innerText;
         makeSound(buttonInnerText);
+
+        buttonAnimation(buttonInnerText);
     });
 }
 
@@ -13,9 +15,12 @@ for (var i = 0; i < drumButtons.length; i++) {
 
 document.addEventListener("keypress", function (event) {
     makeSound(event.key);
+
+    buttonAnimation(event.key);
 });
 
 // Functions
+
 function makeSound(key) {
     switch (key) {
         case "w":
@@ -56,4 +61,12 @@ function makeSound(key) {
         default:
             console.log(buttonInnerText);
     }
+}
+
+function buttonAnimation(currentKey) {
+    var activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(() => {
+        activeButton.classList.remove("pressed");
+    }, 100);
 }

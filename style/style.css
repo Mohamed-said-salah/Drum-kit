@@ -49,6 +49,15 @@ footer {
     margin: 10% auto;
 }
 
+.pressed {
+    box-shadow: 0 3px 4px 0px #dbedf3;
+    opacity: 0.5;
+}
+
+.red {
+    color: red;
+}
+
 .drum {
     outline: none;
     border: 10px solid #404b69;
